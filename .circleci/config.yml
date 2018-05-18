@@ -44,7 +44,7 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-  deployment:
+  deploy:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
       - image: circleci/postgres:9.4
@@ -63,12 +63,12 @@ jobs:
 
 workflows:
   version: 2
-    build-deploy:
-      jobs:
-        - build
-        - deploy: # deployはbuildのあとに実行
-            requires:
-              - build
-            filters: # developブランチの場合のみデプロイする
-              branches:
-                only: master
+  build-deploy:
+    jobs:
+      - build
+      - deploy: # deployはbuildのあとに実行
+          requires:
+            - build
+          filters: # developブランチの場合のみデプロイする
+            branches:
+              only: master
