@@ -58,7 +58,7 @@ jobs:
           command: |
             npm install heroku
             ~/repo/node_modules/heroku/bin/run maintenance:on --app safe-mesa-54215
-            git push git@heroku.com:safe-mesa-54215.git $CIRCLE_SHA1:refs/heads/master
+            git push git@heroku.com:safe-mesa-54215.git $CIRCLE_SHA1:master
             ~/repo/node_modules/heroku/bin/run maintenance:off --app safe-mesa-54215
 
 workflows:
