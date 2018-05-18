@@ -66,9 +66,9 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - deploy: # deployはbuildのあとに実行
-          requires:
-            - build
-          filters: # developブランチの場合のみデプロイする
-            branches:
-              only: master
+        #      - deploy: # deployはbuildのあとに実行
+        #          requires:
+        #            - build
+        #          filters: # developブランチの場合のみデプロイする
+        #            branches:
+        #              only: master
