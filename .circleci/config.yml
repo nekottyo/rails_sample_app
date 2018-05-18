@@ -47,5 +47,8 @@ jobs:
 deployment:
   staging:
     branch: master
-    heroku:
-      appname: safe-mesa-54215
+    commands:
+      - heroku maintenance:on --app safe-mesa-54215
+      - git push git@heroku.com:safe-mesa-54215.git $CIRCLE_SHA1:refs/heads/master
+      - heroku run 'rake db:migrate; rake db:seed_fu' --app safe-mesa-54215
+      - heroku maintenance:off --app safe-mesa-54215
