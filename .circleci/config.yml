@@ -56,7 +56,7 @@ jobs:
       - run:
           name: deploy to heroku
           command: |
-            npm install heroku
+            npm install -g heroku
             heroku maintenance:on --app safe-mesa-54215
             git push git@heroku.com:safe-mesa-54215.git $CIRCLE_SHA1:refs/heads/master
             heroku run 'rake db:migrate; rake db:seed_fu' --app safe-mesa-54215
